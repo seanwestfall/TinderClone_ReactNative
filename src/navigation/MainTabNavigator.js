@@ -55,6 +55,44 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
-});
+  TopPicksStack,
+  MessagesStack,
+  ProfileStack,
+})
+
+import MessagesScreen from '../screens/MessagesScreen'
+import ProfileScreen from '../screens/ProfileScreen'
+import TopPicksScreen from '../screens/TopPicksScreen'
+
+const TopPicksStack = createStackNavigator({
+  TopPicks: TopPicksScreen,
+})
+
+TopPicksStack.navigationOptions = {
+  tabBarLabel: 'TopPicks',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon Icon={Icon.FontAwesome} focused={focused} name="diamond" />
+  ),
+}
+
+const MessagesStack = createStackNavigator({
+  Messages: MessagesScreen,
+})
+
+MessagesStack.navigationOptions = {
+  tabBarLabel: 'Messages',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon Icon={Icon.FontAwesome} focused={focused} name="commenting-o" />
+  ),
+}
+
+const ProfileStack = createStackNavigator({
+  Profile: ProfileScreen,
+})
+
+ProfileStack.navigationOptions = {
+  tabBarLabel: 'Profile',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon Icon={Icon.Feather} focused={focused} name="user" />
+  ),
+}
